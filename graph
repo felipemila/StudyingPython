@@ -1,40 +1,26 @@
 ## This is a simple graph about the coronavirus situaiton in my home town, Araraquara.
 
 ## Matplotlib and NumPy
-import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-labels = ['Infectados', 'Em Quarentena', 'Recuperados', 'Óbitos Suspeitos', 'Óbitos']
-corona_infectados = [147, 22, 121, 4, 4]
-
-x = np.arange(len(labels))  
-width = 0.35  
-
+plt.rcdefaults()
 fig, ax = plt.subplots()
-rects1 = ax.bar(x - width/2, corona_infectados, width, label='18 de maio de 2020')
 
+## infectados = Infected, in quarantine, recovered, suspected deaths, confirmed deaths
+## casos = numbers of the respective "infectados"
+infectados = ('Infectados', 'Recuperados', 'Em Quarentena', 'Mortes Suspeitas', 'Mortes')
+y_pos = np.arange(len(infectados))
+casos = [147, 121, 22, 4, 4]
 
-ax.set_ylabel('Casos')
-ax.set_title('Coronavirus em Araraquara')
-ax.set_xticks(x)
-ax.set_xticklabels(labels)
-ax.legend()
+for i, v in enumerate(casos):
+    ax.text(v + 1, i + .1, str(v), color='black')
 
-
-def autolabel(rects):
-   
-    for rect in rects:
-        height = rect.get_height()
-        ax.annotate('{}'.format(height),
-                    xy=(rect.get_x() + rect.get_width() / 2, height),
-                    xytext=(0, 3),  # 3 points vertical offset
-                    textcoords="offset points",
-                    ha='center', va='bottom')
-
-
-autolabel(rects1)
-
-fig.tight_layout()
+ax.barh(y_pos, casos, xerr=error, align='center')
+ax.set_yticks(y_pos)
+ax.set_yticklabels(infectados)
+ax.invert_yaxis()
+ax.set_xlabel('Casos')
+ax.set_title('Coronavirus em Araraquara - 18 de Maio de 2020')
 
 plt.show()
