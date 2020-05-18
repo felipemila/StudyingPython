@@ -1,4 +1,4 @@
-## This is a simple graph about the coronavirus situaiton in my home town, Araraquara.
+## This is a simple graph about the coronavirus situaiton in my hometown, Araraquara.
 
 ## Matplotlib and NumPy
 import matplotlib.pyplot as plt
