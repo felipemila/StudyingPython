@@ -1,0 +1,27 @@
+##Pie chart research about job roles interest in IT made by freecodecamp.com
+
+import numpy as np
+import pandas as pd
+import matplotlib as mat
+import matplotlib.pyplot as plt
+import colorsys
+plt.style.use('seaborn-talk')
+import warnings
+warnings.filterwarnings("ignore")
+%matplotlib inline
+
+##  Dataset to analysis
+df = pd.read_csv("Dados-Pesquisa.csv", sep = ',', low_memory=False)
+
+num = len(df.JobRoleInterest.value_counts().index)
+
+#Colors
+listaHSV = [(x*1.0/num, 0.5, 0.5) for x in range(num)]
+listaRGB = list(map(lambda x: colorsys.hsv_to_rgb(*x), listaHSV))
+labels = df.JobRoleInterest.value_counts().index
+
+#Pie Chart
+fatias, texto = plt.pie(df.JobRoleInterest.value_counts(), colors = listaRGB, startangle = 90)
+plt.legend(fatias, labels, bbox_to_anchor = (1.25, 1))
+plt.title ("Jobs Interest")
+plt.show()
