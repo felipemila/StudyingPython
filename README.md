@@ -7,7 +7,7 @@ https://i.imgur.com/IIbfxtw.png
 
 ### Matplotlib | Coronavirus in Araraquara (Hometown)
 This is a simple graph about the coronavirus situation in my hometown, Araraquara. Date: May/2020.
-https://imgur.com/a/SFQOgQR
+https://i.imgur.com/qFr6Rsx.png
 
 ### Matplotlib | Pie Chart - Job Roles IT
 Pie chart research about job roles interest in IT made by freecodecamp.com.
